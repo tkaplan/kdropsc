@@ -1,0 +1,4 @@
+{
+  "kernels": ["kernels/te*.kernel.cl"],
+  "kernelHelpers": ["helpers/te*.kernel.helper.cl", "helpers/exception.cl"]
+}
