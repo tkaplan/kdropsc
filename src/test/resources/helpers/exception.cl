@@ -1,1 +1,3 @@
-exceptionCL
+// Exception.cl
+
+// Code ...

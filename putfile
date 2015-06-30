@@ -1,1 +1,1 @@
-put deploy.tar.gz
+put deploy.tar.gz run/deploy.tar.gz

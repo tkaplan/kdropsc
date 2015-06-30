@@ -17,6 +17,7 @@
     </properties>
 
     <dependencies>
+
         <dependency>
             <groupId>org.scala-lang</groupId>
             <artifactId>scala-library</artifactId>
@@ -38,25 +39,33 @@
             <version>3.8.1</version>
             <scope>test</scope>
         </dependency>
+
+        <!-- OPENCL -->
+
         <dependency>
             <groupId>org.jocl</groupId>
             <artifactId>jocl</artifactId>
             <version>0.1.9</version>
         </dependency>
+
+        <!-- CUDA -->
+        <dependency>
+            <groupId>org.nd4j</groupId>
+            <artifactId>jcuda</artifactId>
+            <version>5.5</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.nd4j</groupId>
+            <artifactId>jcurand</artifactId>
+            <version>5.5</version>
+        </dependency>
+
     </dependencies>
 
     <build>
         <sourceDirectory>src/main/scala</sourceDirectory>
         <testSourceDirectory>src/test/scala</testSourceDirectory>
-        <resources>
-            <resource>
-                <filtering>false</filtering>
-                <directory>/opt/AMDAPPSDK-3.0.0-Beta/lib/x86_64</directory>
-                <includes>
-                    <include>libOpenCL.so</include>
-                </includes>
-            </resource>
-        </resources>
         <plugins>
             <plugin>
                 <groupId>net.alchim31.maven</groupId>
@@ -133,6 +142,7 @@
                     </execution>
                 </executions>
             </plugin>
+
         </plugins>
     </build>
 

@@ -20,7 +20,12 @@ import scala.util.matching.Regex
  */
 object KDropSC {
 
-  def regexMappedFiles (filePath: String): Map[String, String] = {
+  private var platform: cl_platform_id = null
+  private var platforms: Array[cl_platform_id] = null
+  private var devices: Array[cl_device_id] = null
+  private var context: cl_context = null
+
+  private def regexMappedFiles (filePath: String): Map[String, String] = {
     // If file is a directory then list all files
     // and return future map
     var mappedFiles = Map.empty[String, String]
@@ -70,7 +75,7 @@ object KDropSC {
     return mappedFiles
   }
 
-  def getAbsPath(path: String, configAbsPath: String): String = {
+  private def getAbsPath(path: String, configAbsPath: String): String = {
     path.charAt(0) match {
       // Absolute path
       case '/' =>
@@ -83,7 +88,7 @@ object KDropSC {
 
   // Get mapped files returns a map with the schema
   // ("FileName","FileStringContents")
-  def getMappedFiles(array: JSONArray, absPath: String) = {
+  private def getMappedFiles(array: JSONArray, absPath: String) = {
     var mappedFiles = Map.empty[String, String]
     val length = array.length()
     for (index <- 0 until length) {
@@ -94,7 +99,7 @@ object KDropSC {
     mappedFiles
   }
 
-  def readConfigFile(filePath: String): Predef.Map[String, Map[String, String]] = {
+  def readKernels(filePath: String): Map[String, Map[String, String]] = {
     var config = Map.empty[String, Map[String, String]]
 
     // Read in file
@@ -109,6 +114,82 @@ object KDropSC {
     config += ("kernelHelpers" -> getMappedFiles(kernelHelpers, file.getParent))
 
     return config
+  }
+
+  // Returns none if no platform with GPU found
+  private def hasGPU(platform: cl_platform_id): Option[cl_platform_id] = {
+
+    var numDevices = new Array[Int](1)
+    var a: Array[cl_device_id] = null
+    clGetDeviceIDs(
+      platform,
+      CL_DEVICE_TYPE_GPU,
+      99,
+      null,
+      numDevices
+    )
+
+    if (numDevices(0) < 1)
+      return None
+
+    devices = new Array[cl_device_id](numDevices(0))
+
+    clGetDeviceIDs(
+      platform,
+      CL_DEVICE_TYPE_GPU,
+      devices.length,
+      devices,
+      null
+    )
+
+    Some(platform)
+  }
+
+  def initializePlatformAndDevices() = {
+    // Remove and put into test
+    CL.setExceptionsEnabled(true);
+
+    var numPlatformsArray = new Array[Int](1)
+    clGetPlatformIDs(0, null, numPlatformsArray)
+    val numPlatforms = numPlatformsArray(0)
+
+    platforms = new Array(numPlatforms)
+
+    // Get our platform
+    clGetPlatformIDs(platforms.length, platforms, null)
+    var pi = platforms.iterator
+
+    // Get a platform with a GPU
+    while (pi.hasNext && (platform = hasGPU(pi.next).getOrElse(null)) == null ) {}
+
+    // Return true if platform and devices returned
+    platform != null && devices.length > 0
+  }
+
+  // Get our platform or return None
+  def getPlatform(): Option[cl_platform_id] = {
+    platform match {
+      case null =>
+        None
+      case _ =>
+        Some(platform)
+    }
+  }
+
+  // Get our devices our return None
+  def getDevices(): Option[Array[cl_device_id]] = {
+    devices match {
+      case devices if devices.length > 0 =>
+        Some(devices)
+      case _ =>
+        None
+    }
+  }
+
+  def getContext(): Unit = {
+    // Create context properties
+    val contextProperties = new cl_context_properties
+    contextProperties.addProperty(CL_CONTEXT_PLATFORM, platform)
   }
 
   def initialize(config: String): Unit = {

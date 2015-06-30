@@ -21,5 +21,7 @@
     <orderEntry type="library" name="Maven: org.json:json:20141113" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: junit:junit:3.8.1" level="project" />
     <orderEntry type="library" name="Maven: org.jocl:jocl:0.1.9" level="project" />
+    <orderEntry type="library" name="Maven: org.nd4j:jcuda:5.5" level="project" />
+    <orderEntry type="library" name="Maven: org.nd4j:jcurand:5.5" level="project" />
   </component>
 </module>
