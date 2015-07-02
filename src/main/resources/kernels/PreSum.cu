@@ -1,65 +1,69 @@
-extern "C"
-__global__ void PreSum(
-    float *weights,
-    float *layer_matrix,
-    int height,
-    int width,
-    int size,
-    float *accumulated
-    ) {
-    // Declare shared memory
-    __shared__ float matrix[256];
-    __shared__ int indexer;
+#ifndef PRESUM
+#define PRESUM
+    __device__ void PreSum(
+        float *weights,
+        float *layer_matrix,
+        int height,
+        int width,
+        float *accumulated,
 
-    // Get thread relative position
-    int tx = threadIdx.x;
-    int ty = threadIdx.y;
+        // Shared vars
+        float *matrix,
+        int *indexer
+        ) {
+        // Layer size
+        int size = width * height;
 
-    // Get thread height and width
-    int threadIndex = tx + blockDim.x * ty;
-    int thread_num = blockDim.y * blockDim.x;
+        // Get thread relative position
+        int tx = threadIdx.x;
+        int ty = threadIdx.y;
 
-    // We need to find out how many cells each of our
-    // matrix our cell block gets
-    int group_size = (float)ceil((double)size / (double)thread_num);
+        // Get thread height and width
+        int threadIndex = tx + blockDim.x * ty;
+        int thread_num = blockDim.y * blockDim.x;
 
-    // Get the initial and indexed position in our array
-    int index = (tx + ty * blockDim.x) * group_size;
+        // We need to find out how many cells each of our
+        // matrix our cell block gets
+        int group_size = (float)ceil((double)size / (double)thread_num);
 
-    // Start acc to 0
-    float acc = 0;
-    int upper_bound = index + group_size < size ? index + group_size : size;
+        // Get the initial and indexed position in our array
+        int index = (tx + ty * blockDim.x) * group_size;
 
-    // Accumulate our values
-    for (; index <  upper_bound; index ++)
-        acc += layer_matrix[index] * weights[index];
+        // Start acc to 0
+        float acc = 0;
+        int upper_bound = index + group_size < size ? index + group_size : size;
 
-    // Reduce our arbitrary sized array to 16 x 16
-    matrix[threadIndex] = acc;
+        // Accumulate our values
+        for (; index <  upper_bound; index ++)
+            acc += layer_matrix[index] * weights[index];
 
-    if (threadIndex == thread_num - 1)
-        indexer = 1;
+        // Reduce our arbitrary sized array to 16 x 16
+        matrix[threadIndex] = acc;
 
-    __syncthreads();
+        if (threadIndex == thread_num - 1)
+            *indexer = 1;
 
-    while ((threadIndex + 1) % indexer == 0) {
-        // If we are the right in the next term
-        // lets do the addition
-        if ((threadIndex + 1) % (indexer * 2) == 0) {
-            // The left most node will be accumulated into the right
-            // most node
-            matrix[threadIndex] += matrix[threadIndex - indexer];
-        }
-
-        // Shifting indexer to the left
-        // effectively multiplies it by two
-        if (threadIndex == thread_num - 1) {
-            indexer *= 2;
-        }
         __syncthreads();
-    }
 
-    if (threadIndex == thread_num - 1) {
-        *accumulated = matrix[threadIndex];
+        while ((threadIndex + 1) % *indexer == 0) {
+            // If we are the right in the next term
+            // lets do the addition
+            if ((threadIndex + 1) % (*indexer * 2) == 0) {
+                // The left most node will be accumulated into the right
+                // most node
+                matrix[threadIndex] += matrix[threadIndex - *indexer];
+            }
+
+            // Shifting indexer to the left
+            // effectively multiplies it by two
+            if (threadIndex == thread_num - 1) {
+                *indexer *= 2;
+            }
+            __syncthreads();
+        }
+
+        if (threadIndex == thread_num - 1) {
+            *accumulated = matrix[threadIndex];
+        }
     }
-}
+#endif

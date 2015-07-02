@@ -85,6 +85,54 @@ object TestCuda {
 //    }
   }
 
+  def TestBlockSync = {
+    JCudaDriver.setExceptionsEnabled(true)
+
+    cuInit(0)
+
+    val ctx = bindCtx
+    val kernel = getKernel("TestBlockSync")
+
+    val output = new CUdeviceptr
+    val blocksX = 2
+    val blocksY = 2
+    val blocksSize = blocksX * blocksY
+
+    // Now we want to allocate memory for our weights
+    cuMemAlloc(output, blocksSize * Sizeof.INT)
+
+    val kernelParameters = Pointer.to(
+      Pointer.to(output)
+    )
+
+    // Call the kernel function
+    val blockSizeX = 16
+    val blockSizeY = 16
+    cuLaunchKernel(
+      kernel,
+      blocksX, blocksY, 1,
+      blockSizeX, blockSizeY, 1,
+      0, null,
+      kernelParameters, null
+    )
+
+    // Synchronize our context
+    cuCtxSynchronize
+
+    // Extract our precious matrix for our end result
+    var resultsH = new Array[Int](blocksSize)
+    cuMemcpyDtoH(
+      Pointer.to(resultsH),
+      output,
+      Sizeof.INT * blocksSize
+    )
+
+    cuMemFree(output)
+
+    resultsH
+
+  }
+
   // Generates all the necessary random weights for our array
   def generateRandomWeightArray(layers: Int, size: Int) = {
     JCurand.setExceptionsEnabled(true)
@@ -122,7 +170,7 @@ object TestCuda {
     host
   }
 
-  def NeuralNetwork1 = {
+  def RunNNSimple = {
     val image = getImages
 
     JCudaDriver.setExceptionsEnabled(true)
@@ -130,7 +178,7 @@ object TestCuda {
     cuInit(0)
 
     val ctx = bindCtx
-    val kernel = getKernel("NeuralNetwork1")
+    val kernel = getKernel("RunNNSimple")
 
     //JCuda.cudaDeviceSetLimit(cudaLimit.cudaLimitStackSize, )
     val stackSize = new Array[Long](1)
@@ -140,7 +188,7 @@ object TestCuda {
     JCuda.cudaDeviceGetLimit(heapSize, cudaLimit.cudaLimitMallocHeapSize)
     println("Our heap limit is: " + heapSize(0))
 
-    val layers = 8
+    val layers = 5
     val size = Math.pow(28, 4).asInstanceOf[Int] * layers
 
     println("Number of weights our NN contains: " + size)
@@ -232,7 +280,117 @@ object TestCuda {
     resultsH
   }
 
-  def NeuralNetTrain = {
+  def QuantTensor = {
+    val image = getImages
+
+    JCudaDriver.setExceptionsEnabled(true)
+
+    cuInit(0)
+
+    val ctx = bindCtx
+    val kernel = getKernel("TestQuantTensor")
+
+    //JCuda.cudaDeviceSetLimit(cudaLimit.cudaLimitStackSize, )
+    val stackSize = new Array[Long](1)
+    val heapSize = new Array[Long](1)
+    JCuda.cudaDeviceGetLimit(stackSize, cudaLimit.cudaLimitStackSize)
+    println("Our stack limit is: " + stackSize(0))
+    JCuda.cudaDeviceGetLimit(heapSize, cudaLimit.cudaLimitMallocHeapSize)
+    println("Our heap limit is: " + heapSize(0))
+
+    val layers = 5
+    val size = Math.pow(28, 4).asInstanceOf[Int] * layers
+
+    println("Number of weights our NN contains: " + size)
+
+    println("Readjusting our heap size to size of our neural net")
+    val newHeapSize = heapSize(0) + size * Sizeof.FLOAT
+    JCuda.cudaDeviceSetLimit(cudaLimit.cudaLimitMallocHeapSize, newHeapSize)
+
+    println("New heap size is: " + newHeapSize)
+
+    // Create a random normalized uniformed floating weight array
+    var weightArray = generateRandomWeightArray(layers, size)
+
+    val weights = new CUdeviceptr
+    val l0 = new CUdeviceptr
+    val results = new CUdeviceptr
+    val softOuts = 10
+
+    // Now we want to allocate memory for our weights
+    cuMemAlloc(weights, size * Sizeof.FLOAT)
+    cuMemcpyHtoD(
+      weights,
+      Pointer.to(weightArray),
+      size * Sizeof.FLOAT
+    )
+
+    // Now we want to allocate memory for our initial layer
+    cuMemAlloc(l0, size * Sizeof.FLOAT)
+    cuMemcpyHtoD(
+      l0,
+      Pointer.to(image),
+      size * Sizeof.FLOAT
+    )
+
+    // Lastly we want to allocate our results array
+    cuMemAlloc(results, softOuts * Sizeof.FLOAT)
+
+    // Now we want to allocate our kernel parameters
+    val kernelParameters = Pointer.to(
+      Pointer.to(weights),
+      Pointer.to(l0),
+      Pointer.to(Array[Int](28)),
+      Pointer.to(Array[Int](28)),
+      Pointer.to(Array[Int](size)),
+      Pointer.to(Array[Int](layers)),
+      Pointer.to(Array[Int](softOuts)),
+      Pointer.to(results)
+    )
+
+    // Call the kernel function
+    val blockSizeX = 16
+    val blockSizeY = 16
+    cuLaunchKernel(
+      kernel,
+      1, 1, 1,
+      blockSizeX, blockSizeY, 1,
+      0, null,
+      kernelParameters, null
+    )
+
+    // Synchronize our context
+    cuCtxSynchronize
+
+    // Extract our precious matrix for our end result
+    var resultsH = new Array[Float](10)
+    cuMemcpyDtoH(
+      Pointer.to(resultsH),
+      results,
+      Sizeof.FLOAT * softOuts
+    )
+
+    val used = new Array[Long](1)
+    val free = new Array[Long](1)
+    cuMemGetInfo(
+      used,
+      free
+    )
+
+    println("Used: " + used(0))
+    println("Free: " + free(0))
+
+    // Don't forget to free up all that memory
+    cuMemFree(weights)
+    cuMemFree(l0)
+    cuMemFree(results)
+
+    cuCtxDestroy(ctx)
+
+    resultsH
+  }
+
+  def PreSum(factor: Int) = {
     // For now this will return one image to work with
     val image = getImages
 
@@ -242,7 +400,7 @@ object TestCuda {
     cuInit(0)
 
     val ctx = bindCtx
-    val kernel = getKernel("PreSum")
+    val kernel = getKernel("TestPreSum")
 
     val size = 28 * 28
 
@@ -255,7 +413,7 @@ object TestCuda {
       size * Sizeof.FLOAT
     )
 
-    val weights = Array.fill[Float](28 * 28)(2)
+    val weights = Array.fill[Float](28 * 28)(factor)
 
     val weightsD = new CUdeviceptr
     cuMemAlloc(weightsD, size * Sizeof.FLOAT)
@@ -273,7 +431,6 @@ object TestCuda {
       Pointer.to(weightsD),
       Pointer.to(Array[Int](28)),
       Pointer.to(Array[Int](28)),
-      Pointer.to(Array[Int](size)),
       Pointer.to(accD)
     )
 

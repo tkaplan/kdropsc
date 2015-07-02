@@ -79,23 +79,28 @@ class KDropSC_spec extends FlatSpec with Matchers {
     assert(true)
   }
 
-  it should "Read mnist" in {
-    val someOutput = TestCuda.NeuralNetTrain
-//    val bi = new BufferedImage(28, 28, BufferedImage.TYPE_BYTE_GRAY)
-//    var i = 0
-//    for (byte <- someOutput) {
-//      val x = i % 28
-//      val y = i / 28
-//      bi.setRGB(x, y, byte.asInstanceOf[Int])
-//    }
-//
-//    ImageIO.write(bi, "jpg", new File(s"/home/dev/test.jpg"))
-    println(someOutput(0))
-    assert(true)
+  it should "TestBlockSync" in {
+    val output = TestCuda.TestBlockSync
+    println("*****************")
+    println("Testing block sync")
+    output.foreach(println(_));
+    println("*****************")
+  }
+
+  it should "PreSum" in {
+    val output = TestCuda.PreSum(1)
+    val output2 = TestCuda.PreSum(2)
+    println("Our output: " + output(0))
+    assert(output(0)*2 == output2(0))
   }
 
   it should "Neural Net" in {
-    val results = TestCuda.NeuralNetwork1
+    val results = TestCuda.QuantTensor
+    assert(true)
+  }
+
+  it should "RunNNSimple" in {
+    val result = TestCuda.RunNNSimple
     assert(true)
   }
 }

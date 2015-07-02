@@ -2,31 +2,30 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b4183d13-c855-4322-b06d-4c64b06d6dfa" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/mnist/t10k-images.idx3-ubyte" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/mnist/t10k-labels.idx1-ubyte" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/mnist/train-images.idx3-ubyte" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/mnist/train-labels.idx1-ubyte" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/kernels/JCudaMatrixSharedMemKernel.cu" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/kernels/JCudaTextureKernel.cu" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/kernels/JCudaVectorAddKernel.cu" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/scala/dev/la/Matrix.scala" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jocl_jocl_2_7.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_nd4j_jcurand_5_5.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/kernels/NeuralNetwork1.cu" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/kernels/PreSum.cu" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/scala/dev/TestCuda.scala" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/nvcc.sh" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/run.sh" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/deploy.tar.gz" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/dev/KDropSC.scala" afterPath="$PROJECT_DIR$/src/main/scala/dev/KDropSC.scala" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/kernels/BlockSync.cu" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/kernels/RunNNSimple.cu" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/kernels/TestBlockSync.cu" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/kernels/TestPreSum.cu" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/kernels/TestQuantTensor.cu" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/kernels/NeuralNetwork1.cubin" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/kernels/NeuralNetwork1.cu" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/kernels/NeuralNetwork1.cubin" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-org.scalatest.tools.DiscoverySuite-acc0b4f3-2b54-44ae-a4ee-d07a7a025326.xml" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/resources/kernels/NeuralNetwork1.cu" afterPath="$PROJECT_DIR$/src/main/resources/kernels/QuantTensor.cu" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/dev/KDropSC_spec$$anonfun$5.class" afterPath="$PROJECT_DIR$/target/test-classes/dev/KDropSC_spec$$anonfun$5.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/dev/KDropSC_spec$$anonfun$6.class" afterPath="$PROJECT_DIR$/target/test-classes/dev/KDropSC_spec$$anonfun$6.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/dev/KDropSC_spec.class" afterPath="$PROJECT_DIR$/target/test-classes/dev/KDropSC_spec.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/kernels/PreSum.cubin" afterPath="$PROJECT_DIR$/src/main/resources/kernels/PreSum.cubin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/kernels/PreSum.cubin" afterPath="$PROJECT_DIR$/target/classes/kernels/PreSum.cubin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/dev/TestCuda$$anonfun$1.class" afterPath="$PROJECT_DIR$/target/classes/dev/TestCuda$$anonfun$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/dev/TestCuda$.class" afterPath="$PROJECT_DIR$/target/classes/dev/TestCuda$.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/dev/TestCuda.class" afterPath="$PROJECT_DIR$/target/classes/dev/TestCuda.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/scala/dev/KDropSC_spec.scala" afterPath="$PROJECT_DIR$/src/test/scala/dev/KDropSC_spec.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/resources/helpers/exception.cl" afterPath="$PROJECT_DIR$/src/test/resources/helpers/exception.cl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jniopencl.iml" afterPath="$PROJECT_DIR$/jniopencl.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/putfile" afterPath="$PROJECT_DIR$/putfile" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/remote_build.sh" afterPath="$PROJECT_DIR$/remote_build.sh" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/resources/kernels/test.kernel.cl" afterPath="$PROJECT_DIR$/src/test/resources/kernels/test.kernel.cl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/resources/helpers/test.kernel.helper.cl" afterPath="$PROJECT_DIR$/src/test/resources/helpers/test.kernel.helper.cl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/kernels/PreSum.cu" afterPath="$PROJECT_DIR$/src/main/resources/kernels/PreSum.cu" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/kernels/PreSum.cu" afterPath="$PROJECT_DIR$/target/classes/kernels/PreSum.cu" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-dev.KDropSC_spec.xml" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-dev.KDropSC_spec.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/dev/TestCuda.scala" afterPath="$PROJECT_DIR$/src/main/scala/dev/TestCuda.scala" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/surefire-reports/TestSuite.txt" afterPath="$PROJECT_DIR$/target/surefire-reports/TestSuite.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="jniopencl.iws" />
@@ -55,21 +54,11 @@
     <splitter split-orientation="horizontal" split-proportion="0.40381896">
       <split-first>
         <leaf>
-          <file leaf-file-name="TestCuda.scala" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/scala/dev/TestCuda.scala">
+          <file leaf-file-name="PreSum.cu" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/resources/kernels/PreSum.cu">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="2970" max-vertical-offset="7065">
-                  <caret line="142" column="18" selection-start-line="142" selection-start-column="18" selection-end-line="142" selection-end-column="18" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/pom.xml">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="587" max-vertical-offset="2310">
-                  <caret line="60" column="34" selection-start-line="60" selection-start-column="34" selection-end-line="60" selection-end-column="34" />
+                <state vertical-scroll-proportion="0.0" vertical-offset="405" max-vertical-offset="1110">
+                  <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
@@ -78,18 +67,28 @@
           <file leaf-file-name="KDropSC_spec.scala" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/test/scala/dev/KDropSC_spec.scala">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.7854077" vertical-offset="786" max-vertical-offset="1485">
-                  <caret line="97" column="41" selection-start-line="97" selection-start-column="41" selection-end-line="97" selection-end-column="41" />
+                <state vertical-scroll-proportion="0.6666667" vertical-offset="599" max-vertical-offset="1560">
+                  <caret line="79" column="3" selection-start-line="79" selection-start-column="3" selection-end-line="79" selection-end-column="3" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="PreSum.cu" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/resources/kernels/PreSum.cu">
+          <file leaf-file-name="TestPreSum.cu" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/resources/kernels/TestPreSum.cu">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="270" max-vertical-offset="1050">
-                  <caret line="17" column="34" selection-start-line="17" selection-start-column="34" selection-end-line="17" selection-end-column="34" />
+                <state vertical-scroll-proportion="0.0" vertical-offset="345" max-vertical-offset="510">
+                  <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="QuantTensor.cu" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/resources/kernels/QuantTensor.cu">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0" vertical-offset="345" max-vertical-offset="1590">
+                  <caret line="23" column="24" selection-start-line="23" selection-start-column="24" selection-end-line="23" selection-end-column="24" />
                   <folding />
                 </state>
               </provider>
@@ -99,51 +98,51 @@
       </split-first>
       <split-second>
         <leaf>
-          <file leaf-file-name="NeuralNetwork1.cu" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/main/resources/kernels/NeuralNetwork1.cu">
+          <file leaf-file-name="TestQuantTensor.cu" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/resources/kernels/TestQuantTensor.cu">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.030898876" vertical-offset="1328" max-vertical-offset="2040">
-                  <caret line="90" column="0" selection-start-line="90" selection-start-column="0" selection-end-line="90" selection-end-column="0" />
+                <state vertical-scroll-proportion="0.0" vertical-offset="525" max-vertical-offset="630">
+                  <caret line="35" column="12" selection-start-line="35" selection-start-column="12" selection-end-line="35" selection-end-column="12" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="run.sh" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/run.sh">
+          <file leaf-file-name="RunNNSimple.cu" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/resources/kernels/RunNNSimple.cu">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="195">
-                  <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+                <state vertical-scroll-proportion="0.0" vertical-offset="306" max-vertical-offset="1425">
+                  <caret line="39" column="7" selection-start-line="39" selection-start-column="7" selection-end-line="39" selection-end-column="7" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="JCudaVectorAddKernel.cu" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/resources/kernels/JCudaVectorAddKernel.cu">
+          <file leaf-file-name="BlockSync.cu" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/main/resources/kernels/BlockSync.cu">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="195">
-                  <caret line="1" column="17" selection-start-line="1" selection-start-column="17" selection-end-line="1" selection-end-column="17" />
+                <state vertical-scroll-proportion="0.6741573" vertical-offset="225" max-vertical-offset="1035">
+                  <caret line="47" column="24" selection-start-line="47" selection-start-column="24" selection-end-line="47" selection-end-column="24" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="nvcc.sh" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/nvcc.sh">
+          <file leaf-file-name="TestBlockSync.cu" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/resources/kernels/TestBlockSync.cu">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="150">
-                  <caret line="4" column="14" selection-start-line="4" selection-start-column="14" selection-end-line="4" selection-end-column="14" />
+                <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="360">
+                  <caret line="10" column="34" selection-start-line="10" selection-start-column="34" selection-end-line="10" selection-end-column="34" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="JCudaMatrixSharedMemKernel.cu" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/resources/kernels/JCudaMatrixSharedMemKernel.cu">
+          <file leaf-file-name="TestCuda.scala" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/scala/dev/TestCuda.scala">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="1500" max-vertical-offset="1800">
-                  <caret line="100" column="46" selection-start-line="100" selection-start-column="46" selection-end-line="100" selection-end-column="46" />
+                <state vertical-scroll-proportion="0.0" vertical-offset="570" max-vertical-offset="9420">
+                  <caret line="110" column="19" selection-start-line="110" selection-start-column="19" selection-end-line="110" selection-end-column="19" />
                   <folding />
                 </state>
               </provider>
@@ -178,12 +177,19 @@
         <option value="$PROJECT_DIR$/src/main/resources/kernels/JCudaMatrixSharedMemKernel.cu" />
         <option value="$PROJECT_DIR$/src/main/resources/kernels/JCudaTextureKernel" />
         <option value="$PROJECT_DIR$/src/main/resources/kernels/JCudaTextureKernel.cu" />
-        <option value="$PROJECT_DIR$/src/main/resources/kernels/PreSum.cu" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/nvcc.sh" />
         <option value="$PROJECT_DIR$/src/main/resources/kernels/NeuralNetwork1.cu" />
-        <option value="$PROJECT_DIR$/src/main/scala/dev/TestCuda.scala" />
+        <option value="$PROJECT_DIR$/src/main/resources/kernels/TestPreSum.cu" />
+        <option value="$PROJECT_DIR$/src/main/resources/kernels/PreSum.cu" />
+        <option value="$PROJECT_DIR$/src/main/resources/kernels/BuildWeightTensor.cu" />
+        <option value="$PROJECT_DIR$/src/main/resources/kernels/TestQuantTensor.cu" />
+        <option value="$PROJECT_DIR$/src/main/resources/kernels/QuantTensor.cu" />
+        <option value="$PROJECT_DIR$/src/main/resources/kernels/RunNNSimple.cu" />
         <option value="$PROJECT_DIR$/src/test/scala/dev/KDropSC_spec.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/dev/TestCuda.scala" />
+        <option value="$PROJECT_DIR$/src/main/resources/kernels/TestBlockSync.cu" />
+        <option value="$PROJECT_DIR$/src/main/resources/kernels/BlockSync.cu" />
       </list>
     </option>
   </component>
@@ -223,7 +229,6 @@
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -410,6 +415,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -738,7 +744,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2520243" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16770834" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20885417" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -752,6 +758,32 @@
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32916668" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
+    <layout-to-restore>
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32916668" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32916668" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2520243" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.28385416" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32916668" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+    </layout-to-restore>
   </component>
   <component name="Vcs.Log.UiProperties">
     <option name="RECENTLY_FILTERED_USER_GROUPS">
@@ -787,53 +819,11 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/dev/Hello.java">
+    <entry file="file://$PROJECT_DIR$/src/main/scala/dev/TestCuda.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="60" max-vertical-offset="2430">
-          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="158" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="177" max-vertical-offset="2160">
-          <caret line="33" column="21" selection-start-line="33" selection-start-column="21" selection-end-line="33" selection-end-column="21" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="1650" max-vertical-offset="9630">
+          <caret line="110" column="19" selection-start-line="110" selection-start-column="19" selection-end-line="110" selection-end-column="19" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/dev/KDropSC.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="100">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/resources/config.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="45" max-vertical-offset="135">
-          <caret line="3" column="1" selection-start-line="3" selection-start-column="1" selection-end-line="3" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/resources/helpers/exception.cl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="90">
-          <caret line="0" column="11" selection-start-line="0" selection-start-column="11" selection-end-line="0" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/resources/helpers/test.kernel.helper.cl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="90">
-          <caret line="0" column="13" selection-start-line="0" selection-start-column="13" selection-end-line="0" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/resources/kernels/test.kernel.cl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="90">
-          <caret line="0" column="7" selection-start-line="0" selection-start-column="7" selection-end-line="0" selection-end-column="7" />
         </state>
       </provider>
     </entry>
@@ -1088,14 +1078,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/kernels/JCudaMatrixSharedMemKernel.cu">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="225" max-vertical-offset="1800">
-          <caret line="100" column="46" selection-start-line="100" selection-start-column="46" selection-end-line="100" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="587" max-vertical-offset="2310">
@@ -1104,19 +1086,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/kernels/PreSum.cu">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="270" max-vertical-offset="1050">
-          <caret line="17" column="34" selection-start-line="17" selection-start-column="34" selection-end-line="17" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/nvcc.sh">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="150">
           <caret line="4" column="14" selection-start-line="4" selection-start-column="14" selection-end-line="4" selection-end-column="14" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1124,7 +1097,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="195">
           <caret line="1" column="17" selection-start-line="1" selection-start-column="17" selection-end-line="1" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1132,30 +1104,91 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="712">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hs_err_pid7477.log">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="11940">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/kernels/JCudaMatrixSharedMemKernel.cu">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="225" max-vertical-offset="1800">
+          <caret line="100" column="46" selection-start-line="100" selection-start-column="46" selection-end-line="100" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/kernels/TestPreSum.cu">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="510">
+          <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/kernels/NeuralNetwork1.cu">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/kernels/QuantTensor.cu">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.030898876" vertical-offset="1328" max-vertical-offset="2040">
-          <caret line="90" column="0" selection-start-line="90" selection-start-column="0" selection-end-line="90" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="345" max-vertical-offset="1590">
+          <caret line="23" column="24" selection-start-line="23" selection-start-column="24" selection-end-line="23" selection-end-column="24" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/dev/TestCuda.scala">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/kernels/TestQuantTensor.cu">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="2970" max-vertical-offset="7065">
-          <caret line="142" column="18" selection-start-line="142" selection-start-column="18" selection-end-line="142" selection-end-column="18" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="630">
+          <caret line="35" column="12" selection-start-line="35" selection-start-column="12" selection-end-line="35" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/kernels/RunNNSimple.cu">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="306" max-vertical-offset="1425">
+          <caret line="39" column="7" selection-start-line="39" selection-start-column="7" selection-end-line="39" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/kernels/PreSum.cu">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="405" max-vertical-offset="1110">
+          <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/scala/dev/KDropSC_spec.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7854077" vertical-offset="786" max-vertical-offset="1485">
-          <caret line="97" column="41" selection-start-line="97" selection-start-column="41" selection-end-line="97" selection-end-column="41" />
+        <state vertical-scroll-proportion="0.6666667" vertical-offset="599" max-vertical-offset="1560">
+          <caret line="79" column="3" selection-start-line="79" selection-start-column="3" selection-end-line="79" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/kernels/TestBlockSync.cu">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="360">
+          <caret line="10" column="34" selection-start-line="10" selection-start-column="34" selection-end-line="10" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/dev/TestCuda.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="9420">
+          <caret line="110" column="19" selection-start-line="110" selection-start-column="19" selection-end-line="110" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/kernels/BlockSync.cu">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6741573" vertical-offset="225" max-vertical-offset="1035">
+          <caret line="47" column="24" selection-start-line="47" selection-start-column="24" selection-end-line="47" selection-end-column="24" />
           <folding />
         </state>
       </provider>
